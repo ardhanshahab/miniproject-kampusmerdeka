@@ -34,6 +34,27 @@ const actions = {
       });
   },
 
+  landingList(store) {
+    axios.get('https://newsapi.org/v2/top-headlines', {
+        params:{
+            apiKey: "62a1d2d337ab4769a04e04a0990b93ee",
+            country: "id",
+            category: "health",
+
+        }
+    })
+      
+      .then((response) => {
+        const slicedRes = response.data.articles.slice(0, 2)
+        store.commit("setList", slicedRes);
+        store.commit("setInfo", "");
+        console.log("reponse", slicedRes)
+      })
+      .catch((error) => {
+        store.commit("setInfo", error);
+      });
+  },
+
 };
 
 export default {

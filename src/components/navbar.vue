@@ -1,25 +1,19 @@
 <template>
   <div>
     <v-app-bar
-      color="deep-purple accent-4"
+      color="indigo darken-4"
       dense
       dark
+      app
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Page title</v-toolbar-title>
+      <v-app-bar-title>HappyPills</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-menu
+      <!-- <v-menu
         left
         bottom
       >
@@ -42,13 +36,55 @@
             <v-list-item-title>Option {{ n }}</v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-menu>
+      </v-menu> -->
     </v-app-bar>
+      <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+          class="text-center"
+        >
+          <v-list-item>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Healthy Articles</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>ObatVitamin</v-list-item-title>
+          </v-list-item>
+          
+          <v-list-item>
+            <v-list-item-title>fiturKesehatan</v-list-item-title>
+          </v-list-item>
+          
+          <v-list-item>
+            <v-list-item-title>ListRumahSakit</v-list-item-title>
+          </v-list-item>
+          
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
   </div>
 </template>
 
 <script>
   export default {
     name: 'navbarVue',
+    data: () => ({
+      drawer: false,
+      group: null,
+    }),
   }
   </script>
