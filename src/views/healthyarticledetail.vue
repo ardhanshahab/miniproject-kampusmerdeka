@@ -24,7 +24,7 @@
   dark
   :href="newsData.url"
   target="_blank"
-  >Go to source</v-btn>
+  >Baca Lebih Lanjut</v-btn>
         </v-row>
                     </v-col>
                     <v-col cols="2"></v-col>

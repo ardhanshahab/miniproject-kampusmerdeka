@@ -2,6 +2,12 @@
 <v-app>
     <v-main>
         <v-container>
+        <v-row>
+          <v-col cols="12" class="d-flex mx-3">
+            <h1>HealthyArticles</h1>
+          </v-col>
+        </v-row>
+        
         <v-row class="d-flex justify-space-around mb-6">
             <v-col cols="auto" v-for="(healthy, index) in listHealthy" :key="index">
                 <v-card
@@ -37,7 +43,7 @@
   
             </v-col>
         </v-row>
-        <h1>HealthyArticles</h1>
+        
         </v-container>
     </v-main>
     </v-app>

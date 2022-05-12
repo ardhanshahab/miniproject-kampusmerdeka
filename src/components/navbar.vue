@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar
-      color="indigo darken-4"
+      color="light-blue darken-4"
       dense
       dark
       app
@@ -52,23 +52,38 @@
           active-class="deep-purple--text text--accent-4"
           class="text-center"
         >
-          <v-list-item>
+          <v-list-item
+          link
+          to="/"
+          >
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item
+          link
+          to="/healthyarticles"
+          >
             <v-list-item-title>Healthy Articles</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item
+          link
+          to="/obatvitamin"
+          >
             <v-list-item-title>ObatVitamin</v-list-item-title>
           </v-list-item>
           
-          <v-list-item>
+          <v-list-item
+          link
+          to="/fiturkesehatan"
+          >
             <v-list-item-title>fiturKesehatan</v-list-item-title>
           </v-list-item>
           
-          <v-list-item>
+          <v-list-item
+          link
+          to="/rumahsakit"
+          >
             <v-list-item-title>ListRumahSakit</v-list-item-title>
           </v-list-item>
           

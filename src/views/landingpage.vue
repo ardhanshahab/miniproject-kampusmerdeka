@@ -2,24 +2,30 @@
 <v-app>
     <v-main>
         <v-container fluid>
+                            <!-- hero1 -->
             <v-row>
-                <!-- hero1 -->
                 <v-col cols="6">
                     <v-row class="mx-auto my-auto px-5 py-5 justify-center">
-                        <h1>Pusatkesehatanterlengkap</h1>
+                        <h1>Pusat Informasi kesehatan terlengkap</h1>
                     </v-row>
                     <v-spacer></v-spacer>
                 <v-row class="d-flex align-end justify-space-around my-15 py-10">
                     <v-btn
                     elevation="3"
                     large
-                    color="indigo accent-1"
-                    >ObatVitamin</v-btn>
+                    rounded
+                    dark
+                    to="/obatvitamin"
+                    color="light-blue darken-1"
+                    >Obat Vitamin</v-btn>
                     <v-btn
                     elevation="3"
                     large
-                    color="indigo accent-1"
-                    >ObatVitamin</v-btn>
+                    dark
+                    rounded
+                    to="/rumahsakit"
+                    color="light-blue darken-1"
+                    >List Rumah Sakit</v-btn>
                 </v-row>
                 </v-col>
                 <v-col cols="6">
@@ -27,15 +33,19 @@
                   </v-img>
                   </v-col>
             </v-row>
- 
+ <!-- hero2 -->
             <v-row>
-                <!-- hero2 -->
                 <v-col cols="12">
-                    <v-card
+                    <h4 class="title mx-3 my-3">Topik Teratas</h4>
+                        
+                      <v-card
                         elevation="2"
-                        color="teal accent-1"
-                        class="px-5 py-5 mx-3 my-auto d-flex"
+                        color="light-blue darken-1"
+                        class="px-5 py-5 mx-3 my-auto d-flex align-center"
                         >
+
+                        <v-col cols="12" class="d-flex align-center">
+                       
                         <v-card v-for="(healthy, index) in listHealthy" :key="index" width="400" class="mx-3">
                             <v-img
                                 :src="healthy.urlToImage"
@@ -47,64 +57,87 @@
                                 {{ healthy.source["name"] }}
                                 </v-card-subtitle>
                         </v-card>
-                        <v-card class="d-flex align-center justify-end px-4">
+                        <v-btn class="d-flex align-center justify-end px-4 my-7"
+                        rounded
+                        text
+                        to="/healthyarticles"
+                        >
                           <v-icon>mdi-arrow-right-circle-outline</v-icon>
                           <span>Lihat Selengkapnya</span>
-                        </v-card>
-                        </v-card>
+                        </v-btn>
                 </v-col>
+                </v-card>
+                
+                </v-col>
+                
                </v-row>
-            <v-row>
-                <!-- hero3 -->
+              <!-- hero3 -->
+            <v-row> 
                 <v-col cols="12">
+              <h4 class="title mx-3 my-3">Fitur kesehatan</h4>
                   <v-card
                         elevation="2"
                         color="light-blue accent-1"
-                        class="d-flex py-5 px-5 mx-5 my-auto ">
-                       <v-card
-                            class="mx-5 my-5"
-                            width="300"
-                          >
+                        class="d-flex py-5 px-5 mx-5 my-auto justify-center">              
+                        <router-link to="/fiturkesehatan"></router-link>
+                        
+                        <v-col cols="12" class="d-flex align-center">
+                        <v-card  width="400" class="mx-3">
                             <v-img
-                            src="https://pbs.twimg.com/media/FSZkRJBaAAUXYGC?format=jpg&name=4096x4096"
-                            width="200"
-                            >
+                                src="https://pbs.twimg.com/media/FSZkRJBaAAUXYGC?format=jpg&name=4096x4096"
+                                position="center center"
+                                max-height="200"
+                                max-width="300"
+                                >
                                   
                                 </v-img>
                             <v-card-title>Kalkulator BMI</v-card-title>
-                            </v-card>
-
-<v-card
-                            class="mx-5 my-5"
-                            width="300"
-                          >
+                                <v-card-subtitle class="pb-0">
+                                
+                                </v-card-subtitle>
+                        </v-card>
+                        <v-card  width="400" class="mx-3">
                             <v-img
-                            src="https://pbs.twimg.com/media/FSZkb_3agAEvOTz?format=png&name=small"
-                            width="200"
-                            >
+                                src="https://pbs.twimg.com/media/FSZkb_3agAEvOTz?format=png&name=small"
+                                position="center center"
+                                max-height="200"
+                                max-width="200"
+                                >
                                   
                                 </v-img>
                             <v-card-title>Statistik Covid-19</v-card-title>
-                            </v-card>
-
-                          <v-card
-                            class="mx-5 my-5"
-                            width="300"
-                          >
+                                <v-card-subtitle class="pb-0">
+                                
+                                </v-card-subtitle>
+                        </v-card>
+                        <v-card  width="400" class="mx-3">
                             <v-img
-                            src="https://pbs.twimg.com/media/FSZkRI-aIAAVu4f?format=jpg&name=large"
-                            width="200"
-                            >
+                                src="https://pbs.twimg.com/media/FSZkRI-aIAAVu4f?format=jpg&name=large"
+                                position="center center"
+                                max-height="200"
+                                max-width="200"
+                                >
                                   
                                 </v-img>
                             <v-card-title>Diagnosis Covid-19</v-card-title>
-                            </v-card>
-
-<v-card class="d-flex align-center justify-space-around px-4">
+                                <v-card-subtitle class="pb-0">
+                                
+                                </v-card-subtitle>
+                        </v-card>
+                        <v-btn class="d-flex align-center justify-end px-4 my-7"
+                        rounded
+                        text
+                        >
                           <v-icon>mdi-arrow-right-circle-outline</v-icon>
                           <span>Lihat Selengkapnya</span>
-                        </v-card>
-</v-card></v-col>
+                        </v-btn>
+                        
+</v-col>
+</v-card>
+</v-col>
+
+
+
             </v-row>
         
         </v-container>
