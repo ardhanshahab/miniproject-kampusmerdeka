@@ -8,5 +8,6 @@ query MyQuery($id: uuid!) {
     aturan_pakai
     Manufaktur
     id
+    category
   }
 }
