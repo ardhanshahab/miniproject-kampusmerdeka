@@ -19,9 +19,8 @@
 
       <!-- Result -->
       <div v-else-if="data" class="result apollo">
-         <div v-for="healthy in data.healthyarticles" :key="healthy.id">
            <v-row class="d-flex justify-space-around mb-6">
-            <v-col cols="auto">
+            <v-col cols="auto" v-for="healthy in data.healthyarticles" :key="healthy.id" class="d-flex justify-space-around mb-6">
                 <v-card
     class="mx-auto"
     max-width="400"
@@ -45,7 +44,8 @@
       <v-btn
         color="orange"
         text
-        @click="redirect(index)"
+        @click="redirect(healthy.id)"
+
       >
         Share
       </v-btn>
@@ -55,14 +55,47 @@
   
             </v-col>
         </v-row>
-      </div>
         </div>
 
       <!-- No result -->
       <div v-else class="no-result apollo">No result :(</div>
     </template>
   </ApolloQuery>        
-       
+        <v-row class="d-flex justify-space-around mb-6">
+            <v-col cols="auto" v-for="(healthy, index) in listHealthy" :key="index">
+                <v-card
+    class="mx-auto"
+    max-width="400"
+    elevation="4"
+  >
+    <v-img
+    :src="healthy.urlToImage"
+    >
+      
+    </v-img>
+<v-card-title>{{ healthy.title }}</v-card-title>
+    <v-card-subtitle class="pb-0">
+    {{ healthy.source["name"] }}
+    </v-card-subtitle>
+
+    <v-card-text class="text--primary">
+
+     </v-card-text>
+
+    <v-card-actions>
+      <v-btn
+        color="orange"
+        text
+        @click="redirect(index)"
+      >
+        Share
+      </v-btn>
+
+    </v-card-actions>
+  </v-card>
+  
+            </v-col>
+        </v-row> 
         
         </v-container>
     </v-main>
@@ -73,25 +106,27 @@
 export default {
     name: "healthyArticles",
 computed: {
-    // listHealthy() {
-    //   return this.$store.state.news.list;
-    // },
-    // infoHealthy() {
-    //   return this.$store.state.news.info;
-    // },
+    listHealthy() {
+      return this.$store.state.news.list;
+    },
+    infoHealthy() {
+      return this.$store.state.news.info;
+    },
   },
   methods: {
-    // fetchHealthy() {
-    //   this.$store.dispatch("news/fetchList");
-    // },
+    fetchHealthy() {
+      this.$store.dispatch("news/fetchList");
+    },
   
     redirect(index) {
+
         this.$router.push('/healthyarticles/detailtopic/' + index);
-    }
+    },
     
   },
-  // mounted() {
-  //   this.fetchHealthy();
-  // },
+  mounted() {
+    this.fetchHealthy();
+  },
 }
+
 </script>

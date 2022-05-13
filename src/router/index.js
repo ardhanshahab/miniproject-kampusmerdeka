@@ -4,6 +4,7 @@ import landingPage from '../views/landingpage.vue'
 import healthyArticle from '../views/healthyarticle.vue'
 import healthyArticlesDetail from '../views/healthyarticledetail.vue'
 import obatVitamin from '../views/obat.vue'
+import obatvitaminDetail from '../views/obatdetail.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
     path: '/obatvitamin',
     name: 'obatVitamin',
     component: obatVitamin,
+  },
+  {
+    path: '/obatvitamin/detailobat/:index',
+    name: 'obatvitaminDetail',
+    component: obatvitaminDetail,
   },
   
   

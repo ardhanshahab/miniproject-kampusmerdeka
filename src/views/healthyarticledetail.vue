@@ -3,32 +3,40 @@
             
             <v-main>
                 <v-container>
-                <v-row>
-                    <v-col cols="2"></v-col>
-                    <v-col cols="8">
-        <img :src="newsData.urlToImage" width="auto"/>
-        <v-row class="mx-auto my-2">
-        <h3 class="title">{{ newsData.title }}</h3>
-            <h4 class="subtitle">{{ newsData.publishedAt }}</h4><br/>
-            <h4>By : {{ newsData.author }}</h4>
+               <ApolloQuery
+    :query="require('../gql/queryhealthdetail.gql')"
+    :variables="{id :index}"
+  >
+    <template v-slot="{ result: { loading, error, data } }">
+      <!-- Loading -->
+      <div v-if="loading" class="loading apollo">Loading...</div>
+
+      <!-- Error -->
+      <div v-else-if="error" class="error apollo">An error occurred</div>
+
+      <!-- Result -->
+      <div v-else-if="data" class="result apollo">
+         <div>
+         <v-row class="d-flex justify-space-around mb-6">
+            <v-col cols="">
+                <v-img :src="data.healthyarticles_by_pk.image"
+                ></v-img>
+                <h4>{{ data.healthyarticles_by_pk.title }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.harga_obat }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.description }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.komposisi }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.aturan_pakai }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.Manufaktur }}</h4>
+
+            </v-col>
         </v-row>
-        <v-row class="mx-auto my-2">
-        <p>{{ newsData.description }}</p>
-            <h4>from : {{ newsData.source ["name"] }}</h4>
-        </v-row>
-        <v-row class="mx-auto my-5 justify-center">
-             <v-btn
-    elevation="2"
-  large
-  color="blue lighten-1"
-  dark
-  :href="newsData.url"
-  target="_blank"
-  >Baca Lebih Lanjut</v-btn>
-        </v-row>
-                    </v-col>
-                    <v-col cols="2"></v-col>
-                </v-row>
+      </div>
+        </div>
+
+      <!-- No result -->
+      <div v-else class="no-result apollo">No result :(</div>
+    </template>
+  </ApolloQuery>     
                 </v-container>
                 
      
@@ -44,16 +52,8 @@ export default {
       computed: {
    index () { 
        return this.$route.params.index;
-   },
-   newsData() {
-        return this.$store.state.news.list[this.index];
-    },
   },
-  mounted() {
-      console.log(this.newsData)
-      console.log(this.index)
-    
-  },
+},
 }
 </script>
 

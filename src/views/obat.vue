@@ -16,7 +16,7 @@
 
       <!-- Result -->
       <div v-else-if="data" class="result apollo">
-         <div v-for="obat in data.obatvitamin" :key="obat.id">
+         <div v-for="(obat, id) in data.obatvitamin" :key="id">
          <v-row class="d-flex justify-space-around mb-6">
             <v-col cols="auto">
                 <v-card
@@ -42,7 +42,7 @@
       <v-btn
         color="orange"
         text
-        @click="redirect(index)"
+        @click="redirect(obat.id)"
       >
         Share
       </v-btn>
@@ -67,6 +67,12 @@
 
 export default {
     name: "obatVitamin",
+    methods: {
+      redirect(id) {
+        this.$router.push('/obatvitamin/detailobat/' + id);
+    },
+    }
+
 }
 </script>
 
