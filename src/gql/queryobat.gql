@@ -8,5 +8,6 @@ query obatvitamin {
     komposisi
     aturan_pakai
     Manufaktur
+    category
   }
 }
