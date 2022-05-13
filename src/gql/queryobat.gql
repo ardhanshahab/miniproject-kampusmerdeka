@@ -1,0 +1,12 @@
+query obatvitamin {
+  obatvitamin {
+    id
+    image
+    nama_obat
+    harga_obat
+    description
+    komposisi
+    aturan_pakai
+    Manufaktur
+  }
+}
