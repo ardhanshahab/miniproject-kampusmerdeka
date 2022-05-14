@@ -2,13 +2,8 @@
 <v-app>
     
     <v-main>
-      <v-container>
-        <v-row>
-          <v-col cols="12" class="d-flex mx-3">
-            <h1>Obat & Vitamin</h1>
-          </v-col>
-        </v-row>
-
+        <h1>LandingPage</h1>
+<h4>{{  }}</h4>
         <ApolloQuery
     :query="require('../gql/queryobat.gql')"
   >
@@ -21,25 +16,22 @@
 
       <!-- Result -->
       <div v-else-if="data" class="result apollo">
+         <div v-for="obat in data.obatvitamin" :key="obat.id">
          <v-row class="d-flex justify-space-around mb-6">
-            <v-col cols="auto" v-for="healthy in data.obatvitamin" :key="healthy.id" class="d-flex justify-space-around mb-6">
+            <v-col cols="auto">
                 <v-card
     class="mx-auto"
-    width="300"
+    max-width="400"
     elevation="4"
   >
     <v-img
-    :src="healthy.image"
-    width="200"
+    :src="obat.image"
     >
       
     </v-img>
-<v-card-title>{{ healthy.nama_obat }}</v-card-title>
+<v-card-title>{{ obat.nama_obat }}</v-card-title>
     <v-card-subtitle class="pb-0">
-      <p>
-        Rp.
-    {{ healthy.harga_obat }}
-    </p>
+    {{ obat.sourcenews }}
     </v-card-subtitle>
 
     <v-card-text class="text--primary">
@@ -50,10 +42,9 @@
       <v-btn
         color="orange"
         text
-        @click="redirect(healthy.id)"
-
+        @click="redirect(index)"
       >
-        Lihat
+        Share
       </v-btn>
 
     </v-card-actions>
@@ -61,21 +52,14 @@
   
             </v-col>
         </v-row>
+      </div>
         </div>
+
       <!-- No result -->
-      <div v-else class="no-result apollo">
-        <v-row class="d-flex align-center justify-center my-4" align-content="center">
-      <v-progress-circular
-      :size="70"
-      color="primary"
-      indeterminate
-    ></v-progress-circular>
- </v-row>
- </div>
+      <div v-else class="no-result apollo">No result :(</div>
     </template>
   </ApolloQuery>     
-</v-container>
-</v-main>
+    </v-main>
     </v-app>
 </template>
 
@@ -83,12 +67,6 @@
 
 export default {
     name: "obatVitamin",
-    methods: {
-      redirect(id) {
-        this.$router.push('/obatvitamin/detailobat/' + id);
-    },
-    }
-
 }
 </script>
 
