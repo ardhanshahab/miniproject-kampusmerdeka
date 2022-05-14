@@ -5,7 +5,6 @@ import healthyArticle from '../views/healthyarticle.vue'
 import healthyArticlesDetail from '../views/healthyarticledetail.vue'
 import obatVitamin from '../views/obat.vue'
 import obatvitaminDetail from '../views/obatdetail.vue'
-import statistikCovid from '../views/statcovid.vue'
 import kalkulatorBMI from '../views/kalkulatorbmi.vue'
 Vue.use(VueRouter)
 
@@ -34,11 +33,6 @@ const routes = [
     path: '/obatvitamin/detailobat/:index',
     name: 'obatvitaminDetail',
     component: obatvitaminDetail,
-  },
-  {
-    path: '/statistikcovid19id',
-    name: 'statistikCovid',
-    component: statistikCovid,
   },
   {
     path: '/kalkulatorBMI',
