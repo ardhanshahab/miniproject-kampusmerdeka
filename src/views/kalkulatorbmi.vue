@@ -4,8 +4,17 @@
     <v-main>
         <v-container>
             <v-row>
+                <v-col cols="12" class="d-flex justify-center">
+                           <v-img
+                                src="https://pbs.twimg.com/media/FSZkRJBaAAUXYGC?format=jpg&name=4096x4096"
+                                position="center center"
+                                max-height="500"
+                                max-width="500"
+                                ><h1 class="text-center">Kalkulator BMI</h1></v-img>
+                                        
+                </v-col>
                 <v-col cols="12" class="my-auto mx-auto align-center">
-        <h1>Kalkulator BMI</h1>
+
 
        <v-text-field
             label="Height in cm"
@@ -22,26 +31,40 @@
             </v-row>
             <v-row>
                 <v-col cols="12" class="my-auto mx-auto">
-            <div v-if="bmi < 25">
+            <div v-if="bmi < 19">
             <v-alert
             border="left"
             type="success"
-            >{{ bmi }} LOW
+            > BMI kamu : {{ bmi }} Berat rendah
             </v-alert>
             </div>
-            <div v-else-if="bmi >= 25 && bmi < 30 ">
+            <div v-else-if="bmi >= 19 && bmi < 23 ">
                         <v-alert
             border="left"
             type="info"
-            >{{ bmi }} Moderate
+            >BMI kamu : {{ bmi }} Berat Ideal
             </v-alert>
 
             </div>
-            <div v-else-if="bmi >= 30">
+            <div v-else-if="bmi > 23 && bmi < 25">
             <v-alert
             border="left"
             type="error"
-            >{{ bmi }} HIGH
+            >BMI kamu : {{ bmi }} Kelebihan Berat badan (kurang ideal) 
+            </v-alert>
+            </div>     
+            <div v-else-if="bmi >= 25 && bmi < 30 ">
+            <v-alert
+            border="left"
+            type="error"
+            >BMI kamu : {{ bmi }} Berat berlebih (obesitas)
+            </v-alert>
+            </div>
+            <div v-else-if="bmi >= 30 ">
+            <v-alert
+            border="left"
+            type="error"
+            >BMI kamu : {{ bmi }} obesitas (Segera Konsultasi ke Dokter)
             </v-alert>
             </div>     
             </v-col>   

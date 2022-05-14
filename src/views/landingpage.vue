@@ -18,14 +18,6 @@
                     to="/obatvitamin"
                     color="light-blue darken-1"
                     >Obat Vitamin</v-btn>
-                    <v-btn
-                    elevation="3"
-                    large
-                    dark
-                    rounded
-                    to="/rumahsakit"
-                    color="light-blue darken-1"
-                    >List Rumah Sakit</v-btn>
                 </v-row>
                 </v-col>
                 <v-col cols="6">
@@ -131,6 +123,7 @@
                                 position="center center"
                                 max-height="200"
                                 max-width="300"
+                                @click="redirect()"
                                 >
                                   
                                 </v-img>
@@ -139,7 +132,7 @@
                                 
                                 </v-card-subtitle>
                         </v-card>
-                        <v-card  width="400" class="mx-3">
+                        <!-- <v-card  width="400" class="mx-3">
                             <v-img
                                 src="https://pbs.twimg.com/media/FSZkb_3agAEvOTz?format=png&name=small"
                                 position="center center"
@@ -166,14 +159,14 @@
                                 <v-card-subtitle class="pb-0">
                                 
                                 </v-card-subtitle>
-                        </v-card>
-                        <v-btn class="d-flex align-center justify-end px-4 my-7"
+                        </v-card> -->
+                        <!-- <v-btn class="d-flex align-center justify-end px-4 my-7"
                         rounded
                         text
                         >
                           <v-icon>mdi-arrow-right-circle-outline</v-icon>
                           <span>Lihat Selengkapnya</span>
-                        </v-btn>
+                        </v-btn> -->
                         
 </v-col>
 </v-card>
@@ -201,7 +194,9 @@ export default {
     fetchHealthy() {
       this.$store.dispatch("news/landingList");
     },
-    
+    redirect() {
+    this.$router.push('/kalkulatorBMI')
+  },
   },
   mounted() {
     this.fetchHealthy();

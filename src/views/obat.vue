@@ -2,8 +2,13 @@
 <v-app>
     
     <v-main>
-        <h1>LandingPage</h1>
-<h4>{{  }}</h4>
+      <v-container>
+        <v-row>
+          <v-col cols="12" class="d-flex mx-3">
+            <h1>Obat & Vitamin</h1>
+          </v-col>
+        </v-row>
+
         <ApolloQuery
     :query="require('../gql/queryobat.gql')"
   >
@@ -16,22 +21,24 @@
 
       <!-- Result -->
       <div v-else-if="data" class="result apollo">
-         <div v-for="(obat, id) in data.obatvitamin" :key="id">
          <v-row class="d-flex justify-space-around mb-6">
-            <v-col cols="auto">
+            <v-col cols="auto" v-for="healthy in data.obatvitamin" :key="healthy.id" class="d-flex justify-space-around mb-6">
                 <v-card
     class="mx-auto"
     max-width="400"
     elevation="4"
   >
     <v-img
-    :src="obat.image"
+    :src="healthy.image"
     >
       
     </v-img>
-<v-card-title>{{ obat.nama_obat }}</v-card-title>
+<v-card-title>{{ healthy.nama_obat }}</v-card-title>
     <v-card-subtitle class="pb-0">
-    {{ obat.sourcenews }}
+      <p>
+        Rp.
+    {{ healthy.harga_obat }}
+    </p>
     </v-card-subtitle>
 
     <v-card-text class="text--primary">
@@ -42,9 +49,10 @@
       <v-btn
         color="orange"
         text
-        @click="redirect(obat.id)"
+        @click="redirect(healthy.id)"
+
       >
-        Share
+        Lihat
       </v-btn>
 
     </v-card-actions>
@@ -52,14 +60,21 @@
   
             </v-col>
         </v-row>
-      </div>
         </div>
-
       <!-- No result -->
-      <div v-else class="no-result apollo">No result :(</div>
+      <div v-else class="no-result apollo">
+        <v-row class="d-flex align-center justify-center my-4" align-content="center">
+      <v-progress-circular
+      :size="70"
+      color="primary"
+      indeterminate
+    ></v-progress-circular>
+ </v-row>
+ </div>
     </template>
   </ApolloQuery>     
-    </v-main>
+</v-container>
+</v-main>
     </v-app>
 </template>
 

@@ -70,22 +70,16 @@
           link
           to="/obatvitamin"
           >
-            <v-list-item-title>ObatVitamin</v-list-item-title>
+            <v-list-item-title>Obat & Vitamin</v-list-item-title>
           </v-list-item>
           
           <v-list-item
           link
-          to="/fiturkesehatan"
+          to="/kalkulatorBMI"
           >
-            <v-list-item-title>fiturKesehatan</v-list-item-title>
+            <v-list-item-title>Kalkulator BMI</v-list-item-title>
           </v-list-item>
           
-          <v-list-item
-          link
-          to="/rumahsakit"
-          >
-            <v-list-item-title>ListRumahSakit</v-list-item-title>
-          </v-list-item>
           
         </v-list-item-group>
       </v-list>

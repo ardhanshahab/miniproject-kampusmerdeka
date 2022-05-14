@@ -58,7 +58,15 @@
         </div>
 
       <!-- No result -->
-      <div v-else class="no-result apollo">No result :(</div>
+      <div v-else class="no-result apollo">
+                <v-row class="d-flex align-center justify-center my-4" align-content="center">
+      <v-progress-circular
+      :size="70"
+      color="primary"
+      indeterminate
+    ></v-progress-circular>
+    </v-row>
+        </div>
     </template>
   </ApolloQuery>        
         <v-row class="d-flex justify-space-around mb-6">
