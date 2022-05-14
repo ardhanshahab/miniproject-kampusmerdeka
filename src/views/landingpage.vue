@@ -18,6 +18,14 @@
                     to="/obatvitamin"
                     color="light-blue darken-1"
                     >Obat Vitamin</v-btn>
+                        <v-btn
+                    elevation="3"
+                    large
+                    rounded
+                    dark
+                    to="/healthyarticles"
+                    color="light-blue darken-1"
+                    >Healthy Articles</v-btn>
                 </v-row>
                 </v-col>
                 <v-col cols="6">
@@ -123,7 +131,7 @@
                                 position="center center"
                                 max-height="200"
                                 max-width="300"
-                                @click="redirect()"
+                                @click="redirectbmi()"
                                 >
                                   
                                 </v-img>
@@ -194,7 +202,11 @@ export default {
     fetchHealthy() {
       this.$store.dispatch("news/landingList");
     },
-    redirect() {
+        redirect(index) {
+
+        this.$router.push('/healthyarticles/detailtopic/' + index);
+    },
+    redirectbmi() {
     this.$router.push('/kalkulatorBMI')
   },
   },

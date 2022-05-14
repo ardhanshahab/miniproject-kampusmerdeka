@@ -25,11 +25,12 @@
             <v-col cols="auto" v-for="healthy in data.obatvitamin" :key="healthy.id" class="d-flex justify-space-around mb-6">
                 <v-card
     class="mx-auto"
-    max-width="400"
+    width="300"
     elevation="4"
   >
     <v-img
     :src="healthy.image"
+    width="200"
     >
       
     </v-img>
