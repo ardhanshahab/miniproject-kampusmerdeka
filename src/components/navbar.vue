@@ -75,12 +75,17 @@
           
           <v-list-item
           link
-          to="/KalkulatorBMI"
+          to="/fiturkesehatan"
           >
-            <v-list-item-title>Kalkulator BMI</v-list-item-title>
+            <v-list-item-title>fiturKesehatan</v-list-item-title>
           </v-list-item>
           
-
+          <v-list-item
+          link
+          to="/rumahsakit"
+          >
+            <v-list-item-title>ListRumahSakit</v-list-item-title>
+          </v-list-item>
           
         </v-list-item-group>
       </v-list>
