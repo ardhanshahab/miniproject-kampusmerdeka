@@ -1,15 +1,25 @@
 <template>
-<default-layout></default-layout>
+  <v-app>
+    
+<navbar-vue></navbar-vue>
+    <v-main>
+
+      <router-view></router-view>
+    </v-main>
+    <footer-vue></footer-vue>
+  </v-app>
 </template>
 
 <script>
-import defaultLayout from "./layout/defaultlayout.vue";
+import navbarVue from "./components/navbar.vue";
+import footerVue from "./components/footer.vue";
 
 export default {
   name: 'App',
 
   components: {
-    defaultLayout,
+    footerVue,
+    navbarVue,
   },
 
   data: () => ({

@@ -3,9 +3,6 @@ import VueRouter from 'vue-router'
 import landingPage from '../views/landingpage.vue'
 import healthyArticle from '../views/healthyarticle.vue'
 import healthyArticlesDetail from '../views/healthyarticledetail.vue'
-import obatVitamin from '../views/obat.vue'
-import obatvitaminDetail from '../views/obatdetail.vue'
-import kalkulatorBMI from '../views/kalkulatorbmi.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,22 +21,8 @@ const routes = [
     name: 'healthyArticlesDetail',
     component: healthyArticlesDetail,
   },
-  {
-    path: '/obatvitamin',
-    name: 'obatVitamin',
-    component: obatVitamin,
-  },
-  {
-    path: '/obatvitamin/detailobat/:index',
-    name: 'obatvitaminDetail',
-    component: obatvitaminDetail,
-  },
-
-  {
-    path: '/kalkulatorBMI',
-    name: 'kalkulatorBMI',
-    component: kalkulatorBMI,
-  },
+  
+  
 ]
 
 const router = new VueRouter({
