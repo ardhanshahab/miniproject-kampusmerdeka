@@ -1,0 +1,14 @@
+query MyQuery {
+  healthyarticles {
+    id
+    image
+    title
+    soucenews
+    pubishedAt
+    url
+    description
+    created_at
+    content
+    author
+  }
+}
