@@ -7,7 +7,7 @@ query obatvitamin {
     description
     komposisi
     aturan_pakai
-    Manufaktur
+    manufaktur
     category
   }
 }

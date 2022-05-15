@@ -3,5 +3,11 @@ query MyQuery {
     id
     title
     url
+    author
+    content
+    created_at
+    description
+    image
+    sourcenews
   }
 }

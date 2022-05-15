@@ -3,32 +3,58 @@
             
             <v-main>
                 <v-container>
-                <v-row>
-                    <v-col cols="2"></v-col>
-                    <v-col cols="8">
-        <img :src="newsData.urlToImage" width="auto"/>
-        <v-row class="mx-auto my-2">
-        <h3 class="title">{{ newsData.title }}</h3>
-            <h4 class="subtitle">{{ newsData.publishedAt }}</h4><br/>
-            <h4>By : {{ newsData.author }}</h4>
+               <ApolloQuery
+    :query="require('../graphql/queryhealthdetail.gql')"
+    :variables="{id :index}"
+  >
+    <template v-slot="{ result: { loading, error, data } }">
+      <!-- Loading -->
+      <div v-if="loading" class="loading apollo">Loading...</div>
+
+      <!-- Error -->
+      <div v-else-if="error" class="error apollo">An error occurred</div>
+
+      <!-- Result -->
+      <div v-else-if="data" class="result apollo">
+         <div>
+         <v-row class="d-flex justify-space-around mb-6">
+            <v-col cols="12" >
+                <v-img :src="data.healthyarticles_by_pk.image"
+                width="600"
+                ></v-img>
+                <h1>{{ data.healthyarticles_by_pk.title }}</h1>
+                <h4>{{ data.healthyarticles_by_pk.author }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.soucenews }}</h4>
+                <h4>{{ data.healthyarticles_by_pk.created_at }}</h4>
+                <p>{{ data.healthyarticles_by_pk.description }}</p>
+            </v-col>
         </v-row>
-        <v-row class="mx-auto my-2">
-        <p>{{ newsData.description }}</p>
-            <h4>from : {{ newsData.source ["name"] }}</h4>
+        <v-row>
+            <v-btn
+            class="mx-auto my-4"
+             color="light-blue accent-1"
+            :href="data.healthyarticles_by_pk.url"
+            >
+          Baca Lebih Lanjut
+            </v-btn>
+          
         </v-row>
-        <v-row class="mx-auto my-5 justify-center">
-             <v-btn
-    elevation="2"
-  large
-  color="blue lighten-1"
-  dark
-  :href="newsData.url"
-  target="_blank"
-  >Baca Lebih Lanjut</v-btn>
-        </v-row>
-                    </v-col>
-                    <v-col cols="2"></v-col>
-                </v-row>
+      </div>
+        </div>
+
+      <!-- No result -->
+      <div v-else class="no-result apollo">
+      <v-row class="d-flex align-center justify-center my-4" align-content="center">
+      <v-progress-circular
+      :size="70"
+      color="primary"
+      indeterminate
+    >
+    </v-progress-circular>
+    </v-row>
+    </div>
+    </template>
+  </ApolloQuery>     
                 </v-container>
                 
      
@@ -44,16 +70,8 @@ export default {
       computed: {
    index () { 
        return this.$route.params.index;
-   },
-   newsData() {
-        return this.$store.state.news.list[this.index];
-    },
   },
-  mounted() {
-      console.log(this.newsData)
-      console.log(this.index)
-    
-  },
+},
 }
 </script>
 

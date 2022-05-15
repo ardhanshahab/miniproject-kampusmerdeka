@@ -75,9 +75,9 @@
           
           <v-list-item
           link
-          to="/fiturkesehatan"
+          to="/kalkulatorBMI"
           >
-            <v-list-item-title>fiturKesehatan</v-list-item-title>
+            <v-list-item-title>Kalkulator BMI</v-list-item-title>
           </v-list-item>
           
           <v-list-item
