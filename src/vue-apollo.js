@@ -9,7 +9,7 @@ Vue.use(VueApollo)
 const AUTH_TOKEN = 'apollo-token'
 
 // Http endpoint
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://curious-imp-81.hasura.app/v1/graphql'
+const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://curious-imp-81.hasura.app/v1/graphql'
 
 // Config
 const defaultOptions = {
