@@ -8,7 +8,7 @@
           </v-col>
         </v-row>
 <ApolloQuery
-    :query="require('../gql/queryhealth.gql')"
+    :query="require('../graphql/queryhealth.gql')"
   >
     <template v-slot="{ result: { loading, error, data } }">
       <!-- Loading -->
