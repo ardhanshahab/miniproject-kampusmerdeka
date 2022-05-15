@@ -1,0 +1,7 @@
+query MyQuery {
+  healthyarticles {
+    id
+    title
+    url
+  }
+}

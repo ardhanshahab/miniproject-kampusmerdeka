@@ -1,0 +1,12 @@
+query MyQuery($id: uuid!) {
+  healthyarticles_by_pk(id: $id) {
+    id
+    image
+    title
+    soucenews
+    author
+    description
+    url
+    created_at
+  }
+}
