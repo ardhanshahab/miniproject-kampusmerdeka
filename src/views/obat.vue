@@ -23,9 +23,11 @@
       <div v-else-if="data" class="result apollo">
          <v-row class="d-flex justify-space-around mb-6">
             <v-col cols="auto" v-for="healthy in data.obatvitamin" :key="healthy.id" class="d-flex justify-space-around mb-6">
-                <v-card
+               <v-hover></v-hover>
+               <v-card
     class="mx-auto"
-    max-width="400"
+    
+    width="400"
     elevation="4"
   >
     <v-img

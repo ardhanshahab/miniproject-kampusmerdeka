@@ -26,7 +26,9 @@
             outlined
             v-model="weight"
           ></v-text-field>
-          <v-btn @click="bmicalculation()">GO</v-btn>
+          <v-btn @click="bmicalculation()"
+          color="light-blue"
+          >GO</v-btn>
             </v-col>
             </v-row>
             <v-row>

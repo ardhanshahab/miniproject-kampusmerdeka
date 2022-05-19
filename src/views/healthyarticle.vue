@@ -94,7 +94,7 @@
       <v-btn
         color="orange"
         text
-        @click="redirect(index)"
+        :href="healthy.url"
       >
         Share
       </v-btn>

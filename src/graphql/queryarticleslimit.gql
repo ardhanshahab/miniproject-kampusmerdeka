@@ -3,7 +3,7 @@ query MyQuery {
     id
     image
     title
-    soucenews
+    sourcenews
     author
     content
     description

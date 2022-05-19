@@ -17,24 +17,40 @@
       <!-- Result -->
       <div v-else-if="data" class="result apollo">
          <div>
-         <v-row class="d-flex justify-space-around mb-6">
-            <v-col cols="">
-                <v-img :src="data.obatvitamin_by_pk.image"
+         <v-row class="d-flex justify-space-around mx-6">
+            <v-col cols="4">
+              <v-img :src="data.obatvitamin_by_pk.image"
+                width="400"
                 ></v-img>
-                <h4>{{ data.obatvitamin_by_pk.nama_obat }}</h4>
-                <h4>{{ data.obatvitamin_by_pk.harga_obat }}</h4>
-                <h4>{{ data.obatvitamin_by_pk.description }}</h4>
-                <h4>{{ data.obatvitamin_by_pk.komposisi }}</h4>
-                <h4>{{ data.obatvitamin_by_pk.aturan_pakai }}</h4>
-                <h4>{{ data.obatvitamin_by_pk.manufaktur }}</h4>
-
             </v-col>
-        </v-row>
+            
+            <v-col cols="8">
+                <h3 class="title">{{ data.obatvitamin_by_pk.nama_obat }}</h3>
+                <h3>Rp. {{ data.obatvitamin_by_pk.harga_obat }}</h3>
+                <br/>
+                <h4>Kategori</h4>
+                <p>{{ data.obatvitamin_by_pk.category }}</p>
+                <h4>Deskripsi</h4>
+                <p>{{ data.obatvitamin_by_pk.description }}</p>
+                <h4>Komposisi</h4>
+                <p>{{ data.obatvitamin_by_pk.komposisi }}</p>
+                <h4>Aturan Pakai</h4>
+                <p>{{ data.obatvitamin_by_pk.aturan_pakai }}</p>
+                <h4>Manufaktur</h4>
+                <p>{{ data.obatvitamin_by_pk.manufaktur }}</p>
+            </v-col>
+           </v-row>
       </div>
         </div>
 
       <!-- No result -->
-      <div v-else class="no-result apollo">No result :(</div>
+      <div v-else class="no-result apollo"> <v-row class="d-flex align-center justify-center mx-6 my-6" align-content="center">
+      <v-progress-circular
+      :size="70"
+      color="primary"
+      indeterminate
+    ></v-progress-circular>
+ </v-row></div>
     </template>
   </ApolloQuery>     
                 </v-container>
