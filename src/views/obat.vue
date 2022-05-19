@@ -27,7 +27,7 @@
                <v-card
     class="mx-auto"
     
-    width="400"
+    width="300"
     elevation="4"
   >
     <v-img
